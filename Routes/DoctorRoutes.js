@@ -95,7 +95,7 @@ router.post('/login', async (req, res) => {
 router.get('/', fetchuser, async (req, res) => {
     // Implement doctor retrieval logic here
     const doctor = await Doctor.find();
-    res.status(200).json({ message: 'Get doctor' });
+    res.status(200).json({ message: 'Get doctor',doctor });
 });
 
 router.get('/single', fetchuser, async (req, res) => {
