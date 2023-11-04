@@ -12,6 +12,9 @@ app.use(cors())
 // app.use("/api/image", multer.router)
 app.use('/api/patients',require('./Routes/PatientRoutes'))
 app.use('/api/doctors',require('./Routes/DoctorRoutes'))
+app.use('/api/appointments',require('./Routes/AppointmentRoutes'))
+app.use('/api/medicines',require('./Routes/MedicineRoutes'))
+app.use('/api/prescription',require('./Routes/PrescriptionRoutes'))
 
 
 
