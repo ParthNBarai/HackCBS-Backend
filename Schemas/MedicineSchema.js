@@ -1,10 +1,6 @@
 const mongoose = require("mongoose");
 // console.log(user-icon)
 const medicineSchema = mongoose.Schema({
-    seniorId: {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: 'Patients'
-    },
     name: {
         type: String,
         required: true
@@ -13,19 +9,18 @@ const medicineSchema = mongoose.Schema({
         type: String,
         required: true
     },
-    time: {
+    duration: [{
         type: String,
         required: true
-    },
-    duration: {
-        type: Number,
-        required: true
-    },
+    }],
     image: {
+        type: String
+    },
+    instructions: {
         type: String
     }
 });
 
 
 
-module.exports = mongoose.model('Medicine', medicineSchema);
+module.exports = mongoose.model('Medicines', medicineSchema);

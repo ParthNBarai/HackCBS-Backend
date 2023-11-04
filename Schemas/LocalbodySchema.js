@@ -50,6 +50,6 @@ const localBodySchema = new mongoose.Schema({
   },
 });
 
-const LocalBody = mongoose.model('LocalBody', localBodySchema);
+const LocalBody = mongoose.model('LocalBodies', localBodySchema);
 
 module.exports = LocalBody;
