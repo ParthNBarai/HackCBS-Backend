@@ -10,7 +10,7 @@ ConnectionDB();
 //Comments
 app.use(cors())
 // app.use("/api/image", multer.router)
-
+app.use('/api/patients',require('./Routes/PatientRoutes'))
 
 
 

@@ -11,7 +11,7 @@ const appointmentSchema = new mongoose.Schema({
     ref: 'Patients',
     required: true,
   },
-  medicineId: {
+  prescriptionId: {
     type: mongoose.Schema.Types.ObjectId,
     ref: 'Medicines',
     required: true,
@@ -31,4 +31,4 @@ const appointmentSchema = new mongoose.Schema({
   },
 });
 
-module.exports = mongoose.model('Appointments', appointmentSchema);
+module.exports = mongoose.model('Prescriptions', appointmentSchema);
