@@ -26,10 +26,8 @@ const patientSchema = new mongoose.Schema({
         type: String,
     },
     address: {
-        street: String,
-        city: String,
-        state: String,
-        postalCode: String,
+        lat: String,
+        long: String,
     },
     medicalHistory: {
         allergies: [String],

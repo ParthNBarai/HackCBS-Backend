@@ -11,6 +11,7 @@ ConnectionDB();
 app.use(cors())
 // app.use("/api/image", multer.router)
 app.use('/api/patients',require('./Routes/PatientRoutes'))
+app.use('/api/doctors',require('./Routes/DoctorRoutes'))
 
 
 

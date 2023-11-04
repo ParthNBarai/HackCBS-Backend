@@ -68,6 +68,14 @@ const doctorSchema = new mongoose.Schema({
         type: Date,
         default: Date.now,
     },
+    username: {
+        type: String,
+        unique: true,
+    },
+    password: {
+        type: String,
+        required: true,
+    },
 });
 
 const Doctor = mongoose.model('Doctors', doctorSchema);

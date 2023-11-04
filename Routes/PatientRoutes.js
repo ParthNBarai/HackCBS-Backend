@@ -16,7 +16,9 @@ router.post('/register', async (req, res) => {
         password,
         allergies,
         conditions,
-        medications
+        medications,
+        latitude,
+        longitude
     } = req.body;
 
     // Hash the password before saving it
@@ -34,6 +36,8 @@ router.post('/register', async (req, res) => {
         "medicalHistory.allergies": allergies,
         "medicalHistory.conditions": conditions,
         "medicalHistory.medications": medications,
+        "address.lat" : latitude,
+        "address.long" : longitude,
     });
 
     patient.save(async (err, savedPatient) => {
@@ -75,13 +79,13 @@ router.post('/login', async (req, res) => {
 });
 
 // CRUD operations for patients
-router.get('/patients', fetchuser, async (req, res) => {
+router.get('/', fetchuser, async (req, res) => {
     // Implement patient retrieval logic here
     const patients = await Patient.find();
     res.status(200).json({ message: 'Get patients' });
 });
 
-router.get('/patients/single', fetchuser, async (req, res) => {
+router.get('/single', fetchuser, async (req, res) => {
     const patientId = req.user.id; // Get the patient's ID from the JWT token
     await Patient.findById(patientId, (err, patient) => {
         if (err) {
@@ -95,7 +99,7 @@ router.get('/patients/single', fetchuser, async (req, res) => {
 });
 
 
-router.put('/patients/:id', fetchuser, async (req, res) => {
+router.put('/', fetchuser, async (req, res) => {
     // Implement patient update logic here
     const patientId = req.user.id; // Get the patient's ID from the route parameter
     const updateData = req.body; // Data to be updated
@@ -112,7 +116,7 @@ router.put('/patients/:id', fetchuser, async (req, res) => {
     res.status(200).json({ message: `Update patient with ID: ${req.user.id}` });
 });
 
-router.delete('/patients/:id', fetchuser, async (req, res) => {
+router.delete('/', fetchuser, async (req, res) => {
     // Implement patient delete logic here
     const patientId = req.user.id; // Get the patient's ID from the route parameter
 
