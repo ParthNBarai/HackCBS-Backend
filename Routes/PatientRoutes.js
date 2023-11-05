@@ -56,12 +56,12 @@ router.post('/register', async (req, res) => {
 // Patient login
 router.post('/login', async (req, res) => {
     // console.log(req.body)
-    const { username, password } = req.body;
+    const { email, password } = req.body;
 
-    Patient.findOne({ username }, async (err, patient) => {
+    Patient.findOne({ email }, async (err, patient) => {
         // console.log(patient)
         if (err || !patient) {
-            return res.status(401).json({ message: 'Authentication failed' });
+            return res.status(401).json({ message: err.message });
         }
 
         const result = compareSync(req.body.password, patient.password);

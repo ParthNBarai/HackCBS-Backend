@@ -3,9 +3,9 @@ require("dotenv/config");
 
 const fetchuser = async (req, res, next) => {
     // Get the user from the jwt token and add id to req object
-    const token = req.header('token');
+    const token = req.header('auth-token');
     if (!token) {
-        res.status(401).send({ success: false, error: "Please authenticate using a valid token" })
+        res.status(401).send({ success: false, error: "Please authenticate using a valid token!!!" })
     }
     else {
         try {

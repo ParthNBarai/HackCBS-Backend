@@ -25,7 +25,9 @@ router.post('/register', async (req, res) => {
             workSchedule,
             about,
             username,
-            password
+            password,
+            latitude,
+            longitude
         } = req.body;
 
         // Hash the password before saving it
@@ -49,6 +51,8 @@ router.post('/register', async (req, res) => {
             about,
             username,
             password: hashedPassword,
+            "address.lat": latitude,
+            "address.long": longitude,
         });
 
         // console.log(doctor)
@@ -95,7 +99,7 @@ router.post('/login', async (req, res) => {
 router.get('/', fetchuser, async (req, res) => {
     // Implement doctor retrieval logic here
     const doctor = await Doctor.find();
-    res.status(200).json({ message: 'Get doctor',doctor });
+    res.status(200).json({ message: 'Get doctor', doctor });
 });
 
 router.get('/single', fetchuser, async (req, res) => {
